@@ -66,8 +66,11 @@ public class GenericMovement : MonoBehaviour
             }
             else if (Mathf.Abs(contact.normal.x) > 0.75f)
             {
-                moveDir.x *= -1;
-                break;
+                if (!collision.gameObject.CompareTag("Player"))
+                {
+                    moveDir.x *= -1;
+                    break;
+                }
             }
         }
     }

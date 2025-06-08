@@ -128,7 +128,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (PhysicsUtils.DotTest(transform, collision.transform, Vector2.down))
+            {
+                velocity.y = 10f;
+                isJumping = true;
+            }
+        }
+        else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
             if (PhysicsUtils.DotTest(transform, collision.transform, Vector2.up))
             {

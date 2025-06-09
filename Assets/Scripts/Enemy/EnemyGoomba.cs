@@ -28,14 +28,33 @@ public class EnemyGoomba : MonoBehaviour
         Destroy(gameObject, .35f);
     }
 
+    private void HandleHit()
+    {
+        GetComponent<SpriteAnimator>().enabled = false;
+        GetComponent<DeathAnimation>().enabled = true;
+        Destroy(gameObject, 2.5f);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            PlayerState playerState = collision.gameObject.GetComponent<PlayerState>();
             if (PhysicsUtils.DotTest(transform, collision.transform, Vector2.up))
             {
                 HandleHeadStepped();
+            } else
+            {
+                playerState.HandleHit();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Shell"))
+        {
+            HandleHit();
         }
     }
 }

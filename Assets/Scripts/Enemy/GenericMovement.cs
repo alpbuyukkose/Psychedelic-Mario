@@ -6,8 +6,9 @@ public class GenericMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    [SerializeField] private float moveSpeed = 2.5f;
-    [SerializeField] private Vector2 moveDir = Vector2.left;
+    public float moveSpeed = 2.5f;
+    public Vector2 moveDir = Vector2.left;
+
     private Vector2 velocity;
     private float gravity = -9.81f;
 

@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - PowerUp
   - Enemy
-  - 
+  - Shell
   - 
   - 
   - 
@@ -63,4 +63,7 @@ TagManager:
     locked: 0
   - name: Blocks
     uniqueID: 1717079855
+    locked: 0
+  - name: DeathLayer
+    uniqueID: 3605363721
     locked: 0

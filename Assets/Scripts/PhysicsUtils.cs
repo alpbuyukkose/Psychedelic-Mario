@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhysicsUtils
 {
-    public static bool DotTest(Transform transform, Transform other, Vector2 testDirection, float threshold = 0.5f)
+    public static bool DotTest(Transform transform, Transform other, Vector2 testDirection, float threshold = 0.35f)
     {
         Vector2 direction = other.position - transform.position;
         direction.Normalize();
